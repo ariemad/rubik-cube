@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  perspective: 500px;
+  perspective: 1000px;
 }
 
 .cube {
@@ -13,43 +13,114 @@
   position: relative;
 }
 
+$unit: 30vh;
+
+$unit2: $unit * 2;
+$unit3: $unit * 3;
+
+$unit1-2: $unit/2;
+$unit1-10: $unit/5;
+$unit1-40: $unit/40;
+
+//Cube Faces ////////////////////////////////////////////////////////////////////
+
 .face {
-  width: 150px;
-  height: 150px;
+  opacity: 60%;
+  width: $unit;
+  height: $unit;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $unit1-10;
 }
+
+// transform:
+//  translateX(-$half-unit) translateY(-$half-unit) <--- Recenter on cube
+//  rotateY(-90deg) translateZ($half-unit); <--- Face offset
 
 .front {
   background-color: red;
-  transform: translateZ(75px);
+  transform: translateX(-$unit1-2) translateY(-$unit1-2) translateZ($unit1-2);
   position: absolute;
 }
 
 .back {
   background-color: blue;
+  transform: translateX(-$unit1-2) translateY(-$unit1-2) rotateY(180deg)
+    translateZ($unit1-2);
   position: absolute;
-  transform: translateZ(-75px);
 }
 
 .left {
   background-color: orange;
-  transform: rotateY(-90deg) translateZ(75px);
+  transform: translateX(-$unit1-2) translateY(-$unit1-2) rotateY(-90deg)
+    translateZ($unit1-2);
   position: absolute;
 }
 
 .right {
   background-color: violet;
-  transform: rotateY(90deg) translateZ(75px);
+  transform: translateX(-$unit1-2) translateY(-$unit1-2) rotateY(90deg)
+    translateZ($unit1-2);
   position: absolute;
 }
 
 .top {
   background-color: green;
-  transform: rotateX(90deg) translateZ(75px);
+  transform: translateX(-$unit1-2) translateY(-$unit1-2) rotateX(90deg)
+    translateZ($unit1-2);
   position: absolute;
 }
 
 .bottom {
   background-color: yellow;
-  transform: rotateX(-90deg) translateZ(75px);
+  transform: translateX(-$unit1-2) translateY(-$unit1-2) rotateX(-90deg)
+    translateZ($unit1-2);
   position: absolute;
+}
+
+//Cube axis ////////////////////////////////////////////////////////////////////
+
+.axis {
+  background: repeating-linear-gradient(
+    90deg,
+    black 0%,
+    black 50%,
+    transparent 50%,
+    transparent 66%,
+    black 66%,
+    black 84%,
+    transparent 84%,
+    transparent 100%
+  );
+  background-size: $unit1-2;
+
+  width: $unit3;
+  height: $unit1-40;
+  position: absolute;
+}
+
+.axis-x-1 {
+  transform: translateX(-$unit * 1.5) rotateX(0deg);
+}
+
+.axis-x-2 {
+  transform: translateX(-$unit * 1.5) rotateX(90deg);
+}
+
+.axis-y-1 {
+  transform: translateX(-$unit * 1.5) rotateZ(90deg) rotateX(0deg);
+}
+
+.axis-y-2 {
+  transform: translateX(-$unit * 1.5) rotateZ(90deg) rotateX(90deg);
+}
+
+.axis-z-1 {
+  transform: translateX(-$unit * 1.5) rotateY(90deg) rotateX(0deg);
+}
+
+.axis-z-2 {
+  transform: translateX(-$unit * 1.5) rotateY(90deg) rotateX(90deg);
 }

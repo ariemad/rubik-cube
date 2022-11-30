@@ -1,22 +1,16 @@
-import { useEffect, useState } from "react";
 import "../css/Cube.scss";
 
-function Cube(props) {
-  let [cubeOptions, setCubeOptions] = useState(props.cubeOptions);
-
-  useEffect(() => {
-    setCubeOptions(props.cubeOptions);
-  }, [props.cubeOptions]);
-
+function Cube({ cubeOptions }) {
   return (
     <div className="cube-container">
       <div
         className="cube"
         style={{
-          transform: `translate(-75px, -75px) 
-          rotateX(${cubeOptions.rotateX}deg) 
-          rotateY(${cubeOptions.rotateY}deg) 
-          rotateZ(${cubeOptions.rotateZ}deg) `,
+          transform: ` 
+          rotateX(${cubeOptions.rotationX}deg) 
+          rotateY(${cubeOptions.rotationY}deg)
+          rotateZ(${cubeOptions.rotationZ}deg) `,
+          scale: `${cubeOptions.scale}`,
         }}
       >
         <div className="front face">Front</div>
@@ -25,6 +19,12 @@ function Cube(props) {
         <div className="right face">Right</div>
         <div className="top face">Top</div>
         <div className="bottom face">Bottom</div>
+        <div className="axis axis-x-1">X</div>
+        <div className="axis axis-x-2">X</div>
+        <div className="axis axis-y-1">X</div>
+        <div className="axis axis-y-2">X</div>
+        <div className="axis axis-z-1">X</div>
+        <div className="axis axis-z-2">X</div>
       </div>
     </div>
   );
