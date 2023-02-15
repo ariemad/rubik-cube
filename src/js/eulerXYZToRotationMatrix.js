@@ -1,20 +1,26 @@
 function eulerXYZToRotationMatrix(x, y, z) {
-  let cx = Math.cos(x);
-  let sx = Math.sin(x);
-  let cy = Math.cos(y);
-  let sy = Math.sin(y);
-  let cz = Math.cos(z);
-  let sz = Math.sin(z);
+  let c1 = Math.cos(x);
+  let s1 = Math.sin(x);
+  let c2 = Math.cos(y);
+  let s2 = Math.sin(y);
+  let c3 = Math.cos(z);
+  let s3 = Math.sin(z);
 
-  let m11 = cy * cz;
-  let m12 = cx * sz + cz * sx * sy;
-  let m13 = -cx * sy + sx * cy * cz;
-  let m21 = -cy * sz;
-  let m22 = cx * cz - sx * sy * sz;
-  let m23 = cz * sx + cx * sy * sz;
-  let m31 = sy;
-  let m32 = -sx * cy;
-  let m33 = cx * cy;
+  let m11 = c2 * c3;
+  let m12 = -c2 * s3;
+  let m13 = s2;
+  let m21 = c1 * s3 + c3 * s1 * s2;
+  let m22 = c1 * c3 - s1 * s2 * s3;
+  let m23 = -c2 * s1;
+  let m31 = s1 * s3 - c1 * c3 * s2;
+  let m32 = c3 * s1 + c1 * s2 * s3;
+  let m33 = c1 * c2;
+
+  console.log([
+    [m11, m12, m13],
+    [m21, m22, m23],
+    [m31, m32, m33],
+  ]);
 
   return [
     [m11, m12, m13],
@@ -22,9 +28,5 @@ function eulerXYZToRotationMatrix(x, y, z) {
     [m31, m32, m33],
   ];
 }
-
-let input = [-90, 120, -60].map((degrees) => (degrees * Math.PI) / 180);
-
-console.log(eulerXYZToRotationMatrix(...input));
 
 export { eulerXYZToRotationMatrix };
