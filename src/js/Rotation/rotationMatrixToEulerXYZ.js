@@ -17,8 +17,6 @@ function rotationMatrixToEulerXYZ(m) {
     z = 0;
   }
 
-  console.log([x, y, z]);
-
   return [x, y, z];
 }
 
