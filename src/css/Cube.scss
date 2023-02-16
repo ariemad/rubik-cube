@@ -1,31 +1,9 @@
-.cube-container {
-  width: 100vw;
-  height: 100vh;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  perspective: 1000px;
-}
-
-.cube {
-  transform-style: preserve-3d;
-  position: relative;
-}
-
-$unit: 30vh;
-
-$unit2: $unit * 2;
-$unit3: $unit * 3;
-
-$unit1-2: $unit/2;
-$unit1-10: $unit/5;
-$unit1-40: $unit/40;
+@import "variables";
 
 //Cube Faces ////////////////////////////////////////////////////////////////////
 
 .face {
-  opacity: 60%;
+  opacity: 80%;
   width: $unit;
   height: $unit;
 
@@ -123,4 +101,17 @@ $unit1-40: $unit/40;
 
 .axis-z-2 {
   transform: translateX(-$unit * 1.5) rotateY(90deg) rotateX(90deg);
+}
+
+.axis-tag,
+.axis-tag-back {
+  position: absolute;
+  transform: translateY(1rem);
+  font-size: 1.6rem;
+  top: 0;
+  left: 0;
+}
+
+.axis-tag-back {
+  transform: translateX($unit * 3);
 }

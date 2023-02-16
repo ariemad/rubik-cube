@@ -5,25 +5,68 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
 import { useState } from "react";
-import Cube from "./components/Cube";
-import Options from "./components/Options";
+import Model from "./components/Model.js";
+import Sliders from "./components/Sliders.js";
+import { convertEuler } from "./js/Rotation/convertEuler.js";
 
 function App() {
   let [cubeOptions, setCubeOptions] = useState({
-    rotationX: 45,
-    rotationY: 45,
-    rotationZ: 45,
+    // Serves to check slider differences
+    axisSlider: {
+      X: 0,
+      Y: 0,
+      Z: 0,
+    },
+    // Data passed to render the cube
+    axisReal: {
+      X: 0,
+      Y: 0,
+      Z: 0,
+    },
+    prev: "Z",
     scale: 1,
   });
 
   function updateCubeOptions(e) {
-    setCubeOptions({ ...cubeOptions, [e.target.name]: e.target.value });
+    // Make temp object
+    let temp = cubeOptions;
+
+    // Replace the value. Using the name property from the sliders
+    const pathArray = e.target.name.split(".");
+    const lastKey = pathArray.pop();
+    const lastObject = pathArray.reduce((acc, prop) => acc[prop], temp);
+
+    //Update Axis slider and real variable
+    if (["X", "Y", "Z"].includes(lastKey)) {
+      let degreeDiff = e.target.value - temp.axisSlider[lastKey];
+      temp.axisReal[lastKey] += degreeDiff;
+
+      if (lastKey !== temp.prev) {
+        temp.axisReal = convertEuler(temp.axisReal, temp.prev, lastKey);
+        temp.prev = lastKey;
+      }
+
+      temp.axisSlider[lastKey] = e.target.value;
+
+      setCubeOptions({
+        ...temp,
+      });
+    } else {
+      //Else update another variable
+
+      lastObject[lastKey] = e.target.value;
+
+      setCubeOptions({ ...cubeOptions, [lastObject.lastKey]: e.target.value });
+    }
   }
 
   return (
     <div className="App">
-      <Cube key={cubeOptions} cubeOptions={cubeOptions} />
-      <Options onChange={updateCubeOptions} />
+      <Model key={cubeOptions} cubeOptions={cubeOptions} />
+      <Sliders
+        onChange={updateCubeOptions}
+        axisSlider={cubeOptions.axisSlider}
+      />
     </div>
   );
 }

@@ -1,13 +1,13 @@
 import { Slider } from "@mui/material";
-import "../css/Options.scss";
+import "../css/Sliders.scss";
 
-function Options({ onChange }) {
+function Options({ onChange, axisSlider }) {
   return (
     <div className="options">
       <p>Rotation on X axis </p>
       <Slider
         size="small"
-        defaultValue={0}
+        value={axisSlider.X}
         min={-180}
         max={180}
         step={1}
@@ -20,12 +20,12 @@ function Options({ onChange }) {
           { label: "180°", value: 180 },
         ]}
         onChange={onChange}
-        name="rotationX"
+        name="axisSlider.X"
       />
       <p>Rotation on Y axis </p>
       <Slider
         size="small"
-        defaultValue={0}
+        value={axisSlider.Y}
         min={-180}
         max={180}
         step={1}
@@ -38,12 +38,12 @@ function Options({ onChange }) {
           { label: "180°", value: 180 },
         ]}
         onChange={onChange}
-        name="rotationY"
+        name="axisSlider.Y"
       />
       <p>Rotation on Z axis </p>
       <Slider
         size="small"
-        defaultValue={0}
+        value={axisSlider.Z}
         min={-180}
         max={180}
         step={1}
@@ -56,7 +56,7 @@ function Options({ onChange }) {
           { label: "180°", value: 180 },
         ]}
         onChange={onChange}
-        name="rotationZ"
+        name="axisSlider.Z"
       />
       <p>Scale</p>
       <Slider
