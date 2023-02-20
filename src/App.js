@@ -8,6 +8,8 @@ import { useState } from "react";
 import Model from "./components/Model.js";
 import Sliders from "./components/Sliders.js";
 import { convertEuler } from "./js/Rotation/convertEuler.js";
+import { RubikCube } from "./js/RubikCube/RubikCube.js";
+import RubikCube2D from "./components/RubikCube2D.js";
 
 function App() {
   let [cubeOptions, setCubeOptions] = useState({
@@ -17,7 +19,7 @@ function App() {
       Y: 0,
       Z: 0,
     },
-    // Data passed to render the cube
+    // Data passed to render the model
     axisReal: {
       X: 0,
       Y: 0,
@@ -25,6 +27,7 @@ function App() {
     },
     prev: "Z",
     scale: 1,
+    rubikCube: new RubikCube(),
   });
 
   function updateCubeOptions(e) {
@@ -67,6 +70,7 @@ function App() {
         onChange={updateCubeOptions}
         axisSlider={cubeOptions.axisSlider}
       />
+      <RubikCube2D rubikCube={cubeOptions.rubikCube}></RubikCube2D>
     </div>
   );
 }

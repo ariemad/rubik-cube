@@ -1,10 +1,18 @@
 class RubikFace {
-  constructor(number) {
-    this.face = [
-      [number, number, number],
-      [number, number, number],
-      [number, number, number],
-    ];
+  constructor(number, state = "default") {
+    if (state === "default") {
+      this.face = [
+        [number, number, number],
+        [number, number, number],
+        [number, number, number],
+      ];
+    } else if (state === "test") {
+      this.face = [
+        [number + 0.1, number + 0.2, number + 0.3],
+        [number + 0.4, number + 0.5, number + 0.6],
+        [number + 0.7, number + 0.8, number + 0.9],
+      ];
+    }
   }
   row(n) {
     return this.face[n];
