@@ -1,6 +1,6 @@
 .rubik-cube-2d {
   display: grid;
-  grid-template-columns: repeat(9, 1fr);
+  grid-template-columns: repeat(11, 1fr);
 
   margin: 50px;
 
@@ -9,11 +9,63 @@
   right: 0;
 }
 
+//Square
+
 .square {
   height: 2rem;
   width: 2rem;
+}
+
+.square-border {
+  outline: 1px solid black;
   border: 1px solid black;
 }
+
+//Arrow
+
+.arrow {
+  border-color: black;
+}
+
+.left-arrow {
+  transform: rotate(-90deg);
+}
+
+.right-arrow {
+  transform: rotate(90deg);
+}
+
+.down-arrow {
+  transform: rotate(180deg);
+}
+
+.triangle-up {
+  width: 0;
+  height: 0;
+  border-left: 1rem solid transparent;
+  border-right: 1rem solid transparent;
+  border-bottom: 1rem solid;
+
+  border-bottom-color: inherit;
+  pointer-events: none;
+}
+
+.rectangle {
+  border-left: 0.25rem solid;
+  border-right: 0.25rem solid;
+  width: 0.01rem;
+  height: 1rem;
+  margin: auto;
+
+  border-color: inherit;
+  pointer-events: none;
+}
+
+.arrow:hover {
+  border-color: red;
+}
+
+//COlors
 
 .red {
   background-color: red;

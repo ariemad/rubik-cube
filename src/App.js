@@ -63,6 +63,12 @@ function App() {
     }
   }
 
+  function onClickRotate(data) {
+    let temp = cubeOptions.rubikCube;
+    temp.rotate(...data);
+    setCubeOptions({ ...cubeOptions, rubikCube: temp });
+  }
+
   return (
     <div className="App">
       <Model key={cubeOptions} cubeOptions={cubeOptions} />
@@ -70,7 +76,10 @@ function App() {
         onChange={updateCubeOptions}
         axisSlider={cubeOptions.axisSlider}
       />
-      <RubikCube2D rubikCube={cubeOptions.rubikCube}></RubikCube2D>
+      <RubikCube2D
+        rubikCube={cubeOptions.rubikCube}
+        onClick={onClickRotate}
+      ></RubikCube2D>
     </div>
   );
 }
