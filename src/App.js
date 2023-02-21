@@ -26,7 +26,9 @@ function App() {
       Z: 0,
     },
     prev: "Z",
+    // Render Options
     scale: 1,
+    "model-selection": "rubik",
     rubikCube: new RubikCube(),
   });
 
@@ -76,10 +78,14 @@ function App() {
         onChange={updateCubeOptions}
         axisSlider={cubeOptions.axisSlider}
       />
-      <RubikCube2D
-        rubikCube={cubeOptions.rubikCube}
-        onClick={onClickRotate}
-      ></RubikCube2D>
+      {cubeOptions["model-selection"] === "rubik" ? (
+        <RubikCube2D
+          rubikCube={cubeOptions.rubikCube}
+          onClick={onClickRotate}
+        ></RubikCube2D>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

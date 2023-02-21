@@ -1,8 +1,17 @@
 import "../css/Model.scss";
 
 import Cube from "./Cube.js";
+import RubikCube3D from "./RubikCube3D.js";
 
 function Model({ cubeOptions }) {
+  const changeModel = (model) => {
+    let dict = {
+      cube: <Cube></Cube>,
+      rubik: <RubikCube3D></RubikCube3D>,
+    };
+    return dict[model];
+  };
+
   let style;
   if (cubeOptions.prev === "Z") {
     style = {
@@ -32,7 +41,7 @@ function Model({ cubeOptions }) {
   return (
     <div className="model-container">
       <div className="model-reference" style={style}>
-        <Cube></Cube>
+        {changeModel(cubeOptions["model-selection"])}
       </div>
     </div>
   );
