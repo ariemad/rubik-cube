@@ -16,12 +16,6 @@ function eulerXYZToRotationMatrix(x, y, z) {
   let m32 = c3 * s1 + c1 * s2 * s3;
   let m33 = c1 * c2;
 
-  console.log([
-    [m11, m12, m13],
-    [m21, m22, m23],
-    [m31, m32, m33],
-  ]);
-
   return [
     [m11, m12, m13],
     [m21, m22, m23],

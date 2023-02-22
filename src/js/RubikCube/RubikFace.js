@@ -33,6 +33,40 @@ class RubikFace {
     this.face[1][n] = arr[1];
     this.face[2][n] = arr[2];
   }
+
+  rotateLeft() {
+    //Corners
+    [this.face[0][0], this.face[2][0], this.face[2][2], this.face[0][2]] = [
+      this.face[0][2],
+      this.face[0][0],
+      this.face[2][0],
+      this.face[2][2],
+    ];
+    //Sider
+    [this.face[0][1], this.face[1][0], this.face[2][1], this.face[1][2]] = [
+      this.face[1][2],
+      this.face[0][1],
+      this.face[1][0],
+      this.face[2][1],
+    ];
+  }
+
+  rotateRight() {
+    //Corners
+    [this.face[0][2], this.face[0][0], this.face[2][0], this.face[2][2]] = [
+      this.face[0][0],
+      this.face[2][0],
+      this.face[2][2],
+      this.face[0][2],
+    ];
+    //Sides
+    [this.face[1][2], this.face[0][1], this.face[1][0], this.face[2][1]] = [
+      this.face[0][1],
+      this.face[1][0],
+      this.face[2][1],
+      this.face[1][2],
+    ];
+  }
 }
 
 export { RubikFace };

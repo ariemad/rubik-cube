@@ -4,12 +4,12 @@ import "../css/Cube.scss";
 function Cube() {
   return (
     <Fragment>
-      <div className="front face">Front</div>
-      <div className="back face">Back</div>
-      <div className="left face">Left</div>
-      <div className="right face">Right</div>
-      <div className="top face">Top</div>
-      <div className="bottom face">Bottom</div>
+      <div className="front face red">Front</div>
+      <div className="back face blue">Back</div>
+      <div className="left face orange">Left</div>
+      <div className="right face violet">Right</div>
+      <div className="top face green">Top</div>
+      <div className="bottom face yellow">Bottom</div>
 
       <div className="axis axis-x-1">
         <div className="axis-tag-back">+X</div>

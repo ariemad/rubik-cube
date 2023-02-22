@@ -13,51 +13,6 @@
   font-size: $unit1-10;
 }
 
-// transform:
-//  translateX(-$half-unit) translateY(-$half-unit) <--- Recenter on cube
-//  rotateY(-90deg) translateZ($half-unit); <--- Face offset
-
-.front {
-  background-color: red;
-  transform: translateX(-$unit1-2) translateY(-$unit1-2) translateZ($unit1-2);
-  position: absolute;
-}
-
-.back {
-  background-color: blue;
-  transform: translateX(-$unit1-2) translateY(-$unit1-2) rotateY(180deg)
-    translateZ($unit1-2);
-  position: absolute;
-}
-
-.left {
-  background-color: orange;
-  transform: translateX(-$unit1-2) translateY(-$unit1-2) rotateY(-90deg)
-    translateZ($unit1-2);
-  position: absolute;
-}
-
-.right {
-  background-color: violet;
-  transform: translateX(-$unit1-2) translateY(-$unit1-2) rotateY(90deg)
-    translateZ($unit1-2);
-  position: absolute;
-}
-
-.top {
-  background-color: green;
-  transform: translateX(-$unit1-2) translateY(-$unit1-2) rotateX(90deg)
-    translateZ($unit1-2);
-  position: absolute;
-}
-
-.bottom {
-  background-color: yellow;
-  transform: translateX(-$unit1-2) translateY(-$unit1-2) rotateX(-90deg)
-    translateZ($unit1-2);
-  position: absolute;
-}
-
 //Cube axis ////////////////////////////////////////////////////////////////////
 
 .axis {

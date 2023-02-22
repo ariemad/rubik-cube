@@ -7,7 +7,7 @@ function Model({ cubeOptions }) {
   const changeModel = (model) => {
     let dict = {
       cube: <Cube></Cube>,
-      rubik: <RubikCube3D></RubikCube3D>,
+      rubik: <RubikCube3D rubikCube={cubeOptions.rubikCube}></RubikCube3D>,
     };
     return dict[model];
   };

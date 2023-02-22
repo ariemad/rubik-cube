@@ -1,1 +1,32 @@
 @import "variables";
+
+.rubik-face {
+  // opacity: 80%;
+  width: $unit;
+  height: $unit;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.square-coloured {
+  border-radius: 10px;
+  width: 90%;
+  height: 90%;
+  margin: 5%;
+}
+
+@keyframes rotatey {
+  from {
+    transform: rotateX(90deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
+}
+
+.test {
+  animation-name: rotatey;
+  animation-duration: 10s;
+}

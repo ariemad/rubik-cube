@@ -149,6 +149,7 @@ class RubikCube {
         this.back.setCol(0, this.bottom.col(0));
         this.bottom.setCol(0, this.front.col(0));
         this.front.setCol(0, temp);
+        this.left.rotateRight();
         //
       } else if (number === -1) {
         temp = [...this.top.col(0)];
@@ -156,6 +157,7 @@ class RubikCube {
         this.front.setCol(0, this.bottom.col(0));
         this.bottom.setCol(0, this.back.col(0));
         this.back.setCol(0, temp);
+        this.left.rotateLeft();
         //
       } else if (number === 2) {
         temp = [...this.top.col(1)];
@@ -177,6 +179,7 @@ class RubikCube {
         this.back.setCol(2, this.bottom.col(2));
         this.bottom.setCol(2, this.front.col(2));
         this.front.setCol(2, temp);
+        this.right.rotateLeft();
         //
       } else if (number === -3) {
         temp = this.top.col(2);
@@ -184,6 +187,7 @@ class RubikCube {
         this.front.setCol(2, this.bottom.col(2));
         this.bottom.setCol(2, this.back.col(2));
         this.back.setCol(2, temp);
+        this.right.rotateRight();
         //
       }
     } else if (axis === "z") {
@@ -193,6 +197,7 @@ class RubikCube {
         this.right.setCol(2, this.bottom.row(2).reverse());
         this.bottom.setRow(2, this.left.col(0));
         this.left.setCol(0, temp.reverse());
+        this.back.rotateRight();
         //
       } else if (number === -1) {
         temp = [...this.top.row(0)];
@@ -200,6 +205,7 @@ class RubikCube {
         this.left.setCol(0, this.bottom.row(2));
         this.bottom.setRow(2, this.right.col(2).reverse());
         this.right.setCol(2, temp);
+        this.back.rotateLeft();
         //
       } else if (number === 2) {
         temp = [...this.top.row(1)];
@@ -221,6 +227,7 @@ class RubikCube {
         this.right.setCol(0, this.bottom.row(0).reverse());
         this.bottom.setRow(0, this.left.col(2));
         this.left.setCol(2, temp.reverse());
+        this.front.rotateLeft();
         //
       } else if (number === -3) {
         temp = [...this.top.row(2)];
@@ -228,6 +235,7 @@ class RubikCube {
         this.left.setCol(2, this.bottom.row(0));
         this.bottom.setRow(0, this.right.col(0).reverse());
         this.right.setCol(0, temp);
+        this.front.rotateRight();
       }
     } else if (axis === "y") {
       if (number === 1) {
@@ -236,6 +244,8 @@ class RubikCube {
         this.left.setRow(2, this.back.row(0).reverse());
         this.back.setRow(0, this.right.row(2).reverse());
         this.right.setRow(2, temp);
+        this.bottom.rotateRight();
+
         //
       } else if (number === -1) {
         temp = [...this.front.row(2)];
@@ -243,6 +253,8 @@ class RubikCube {
         this.right.setRow(2, this.back.row(0).reverse());
         this.back.setRow(0, this.left.row(2).reverse());
         this.left.setRow(2, temp);
+        this.bottom.rotateLeft();
+
         //
       } else if (number === 2) {
         temp = [...this.front.row(1)];
@@ -264,6 +276,7 @@ class RubikCube {
         this.left.setRow(0, this.back.row(2).reverse());
         this.back.setRow(2, this.right.row(0).reverse());
         this.right.setRow(0, temp);
+        this.top.rotateLeft();
         //
       } else if (number === -3) {
         temp = [...this.front.row(0)];
@@ -271,6 +284,7 @@ class RubikCube {
         this.right.setRow(0, this.back.row(2).reverse());
         this.back.setRow(2, this.left.row(0).reverse());
         this.left.setRow(0, temp);
+        this.top.rotateRight();
       }
     }
   }
