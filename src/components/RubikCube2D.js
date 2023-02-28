@@ -1,7 +1,7 @@
 import "../css/RubikCube2D.scss";
 
 const addClasses = (number) => {
-  let base = "square square-border";
+  let base = "square square-border ";
   let color = "";
   if (number === 0) color = "red";
   else if (number === 1) color = "white";

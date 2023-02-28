@@ -1,0 +1,14 @@
+@import "variables";
+
+.square-container {
+  width: $unit/3;
+  height: $unit/3;
+  position: absolute;
+}
+
+.square-coloured {
+  border-radius: 10px;
+  width: 90%;
+  height: 90%;
+  margin: 5%;
+}

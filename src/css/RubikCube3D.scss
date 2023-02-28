@@ -8,16 +8,11 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
+
+  transform-style: preserve-3d;
 }
 
-.square-coloured {
-  border-radius: 10px;
-  width: 90%;
-  height: 90%;
-  margin: 5%;
-}
-
-@keyframes rotatey {
+@keyframes rotateX {
   from {
     transform: rotateX(90deg);
   }
@@ -26,7 +21,7 @@
   }
 }
 
-.test {
-  animation-name: rotatey;
-  animation-duration: 10s;
+.rotateX {
+  animation-name: rotateX;
+  animation-duration: 1s;
 }
