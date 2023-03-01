@@ -24,6 +24,8 @@ let undefined3 = [undefined, undefined, undefined];
 class RubikCube {
   constructor(state = "default") {
     this.state = state;
+    this.lastRotation = null;
+    this.rotationCounter = 0;
     if (state === "default") {
       this.front = new RubikFace(0);
       this.top = new RubikFace(1);
@@ -142,6 +144,8 @@ class RubikCube {
   }
   rotate(axis, number) {
     let temp;
+    this.lastRotation = { axis: axis, number: number };
+    this.rotationCounter++;
     if (axis === "x") {
       if (number === 1) {
         temp = [...this.top.col(0)];

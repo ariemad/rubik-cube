@@ -1,15 +1,17 @@
 @import "variables";
 
-.rubik-face {
-  // opacity: 80%;
-  width: $unit;
-  height: $unit;
-
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-
+.rotate-animation {
   transform-style: preserve-3d;
+  animation-duration: 0.8s;
+}
+
+@keyframes rotateXNeg {
+  from {
+    transform: rotateX(-90deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
 }
 
 @keyframes rotateX {
@@ -21,7 +23,62 @@
   }
 }
 
+@keyframes rotateYNeg {
+  from {
+    transform: rotateY(90deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes rotateY {
+  from {
+    transform: rotateY(-90deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes rotateZNeg {
+  from {
+    transform: rotateZ(-90deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes rotateZ {
+  from {
+    transform: rotateZ(90deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+
 .rotateX {
   animation-name: rotateX;
-  animation-duration: 1s;
+}
+
+.rotateXNeg {
+  animation-name: rotateXNeg;
+}
+
+.rotateY {
+  animation-name: rotateY;
+}
+
+.rotateYNeg {
+  animation-name: rotateYNeg;
+}
+
+.rotateZ {
+  animation-name: rotateZ;
+}
+
+.rotateZNeg {
+  animation-name: rotateZNeg;
 }
