@@ -1,8 +1,8 @@
 @import "variables";
 
 .square-container {
-  width: $unit/3;
-  height: $unit/3;
+  width: $unit/3 + 0.1vh; // to Hide any visual gap
+  height: $unit/3 + 0.1vh; // to Hide any visual gap
   position: absolute;
 }
 

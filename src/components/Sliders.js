@@ -66,23 +66,6 @@ function Options({ onChange, axisSlider }) {
         name="axisSlider.Z"
       />
       <p>Scale</p>
-      <Slider
-        size="small"
-        defaultValue={1}
-        min={0}
-        max={2}
-        step={0.01}
-        valueLabelDisplay="auto"
-        marks={[
-          { label: "0", value: 0 },
-          { label: "0.5", value: 0.5 },
-          { label: "1", value: 1 },
-          { label: "1.5", value: 1.5 },
-          { label: "2", value: 2 },
-        ]}
-        onChange={onChange}
-        name="scale"
-      />
 
       <FormControl>
         <FormLabel id="model-radio">Model</FormLabel>

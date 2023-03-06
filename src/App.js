@@ -72,9 +72,23 @@ function App() {
     setCubeOptions({ ...cubeOptions, rubikCube: temp });
   }
 
+  function handleOnWheel(e) {
+    let temp = cubeOptions;
+    if (e.deltaY > 0) {
+      temp.scale = Math.min(10, temp.scale * 1.1);
+    } else {
+      temp.scale = Math.max(0.1, temp.scale / 1.1);
+    }
+    setCubeOptions({ ...cubeOptions, scale: temp.scale });
+  }
+
   return (
     <div className="App">
-      <Model key={cubeOptions} cubeOptions={cubeOptions} />
+      <Model
+        key={cubeOptions}
+        cubeOptions={cubeOptions}
+        handleOnWheel={handleOnWheel}
+      />
       <Sliders
         onChange={updateCubeOptions}
         axisSlider={cubeOptions.axisSlider}

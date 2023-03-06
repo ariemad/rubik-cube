@@ -171,7 +171,7 @@ function RubikCube3DFace({
         className={"rotate-animation " + addRotateAnimation()}
       >
         <div style={addStyle()} className={"square-container black"}>
-          <div className={addColor(color)}>{face + row + col}</div>
+          <div className={addColor(color)}></div>
         </div>
       </div>
     </Fragment>
