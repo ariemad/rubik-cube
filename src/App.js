@@ -11,6 +11,7 @@ import Sliders from "./components/Sliders.js";
 import { convertEuler } from "./js/Rotation/convertEuler.js";
 import { RubikCube } from "./js/RubikCube/RubikCube.js";
 import RubikCube2D from "./components/RubikCube2D.js";
+import { rotateCubeOnDrag } from "./js/Rotation/rotateCubeOnDrag.js";
 
 function App() {
   let [cubeOptions, setCubeOptions] = useState({
@@ -31,6 +32,11 @@ function App() {
     scale: 1,
     "model-selection": "rubik",
     rubikCube: new RubikCube(),
+    //To track differences is mouse movement
+    screenX: 0,
+    screenY: 0,
+    mouseDown: false,
+    axisBefore: {},
   });
 
   function updateCubeOptions(e) {
@@ -82,12 +88,76 @@ function App() {
     setCubeOptions({ ...cubeOptions, scale: temp.scale });
   }
 
+  function handleCustomDrag(e) {
+    if (e._reactName === "onMouseDown") {
+      setCubeOptions({
+        ...cubeOptions,
+        screenX: e.screenX,
+        screenY: e.screenY,
+        mouseDown: true,
+        axisBefore: cubeOptions.axisReal,
+      });
+    } else if (
+      e._reactName === "onMouseMove" &&
+      cubeOptions.mouseDown === true
+    ) {
+      let temp = cubeOptions;
+
+      let sensitivity = 0.2;
+
+      temp.axisReal = rotateCubeOnDrag(
+        cubeOptions.axisBefore,
+        temp.prev,
+        (e.screenX - temp.screenX) * sensitivity,
+        (e.screenY - temp.screenY) * sensitivity
+      );
+
+      setCubeOptions({ ...cubeOptions, axisReal: temp.axisReal });
+
+      console.log("X", e.screenX - cubeOptions.screenX);
+      console.log("Y", cubeOptions.screenY - e.screenY);
+    } else if (e._reactName === "onMouseUp") {
+      setCubeOptions({
+        ...cubeOptions,
+        mouseDown: false,
+      });
+    }
+
+    /*     let temp = cubeOptions;
+    if (
+      Math.abs(temp.mouseX - e.screenX) > 100 &&
+      Math.abs(temp.mouseY - e.screenY) > 100
+    ) {
+      setCubeOptions({ ...cubeOptions, mouseX: e.screenX, mouseY: e.screenY });
+    } else {
+      temp.axisReal = rotateCubeOnDrag(
+        temp.axisReal,
+        temp.prev,
+        "Y",
+        e.screenX - temp.mouseX
+      );
+      temp.axisReal = rotateCubeOnDrag(
+        temp.axisReal,
+        temp.prev,
+        "X",
+        e.screenY - temp.mouseY
+      );
+      temp.mouseX = e.screenX;
+      temp.mouseY = e.screenY;
+
+      setCubeOptions({
+        ...temp,
+      });
+    } */
+  }
+
   return (
     <div className="App">
       <Model
         key={cubeOptions}
         cubeOptions={cubeOptions}
         handleOnWheel={handleOnWheel}
+        handleCustomDrag={handleCustomDrag}
       />
       <Sliders
         onChange={updateCubeOptions}

@@ -65,7 +65,6 @@ function Options({ onChange, axisSlider }) {
         onChange={onChange}
         name="axisSlider.Z"
       />
-      <p>Scale</p>
 
       <FormControl>
         <FormLabel id="model-radio">Model</FormLabel>

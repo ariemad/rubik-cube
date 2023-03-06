@@ -15,7 +15,6 @@ function RubikCube3DSpacer({ face, lastRotation }, rotationCounter) {
     if (!lastRotation) {
       return "";
     }
-    console.log(lastRotation);
 
     if (lastRotation.axis === "x") {
       if (Math.abs(lastRotation.number) === 1) {

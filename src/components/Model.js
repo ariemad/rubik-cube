@@ -3,7 +3,7 @@ import "../css/Model.scss";
 import Cube from "./Cube.js";
 import RubikCube3D from "./RubikCube3D.js";
 
-function Model({ cubeOptions, handleOnWheel }) {
+function Model({ cubeOptions, handleOnWheel, handleCustomDrag }) {
   const changeModel = (model) => {
     let dict = {
       cube: <Cube></Cube>,
@@ -39,7 +39,13 @@ function Model({ cubeOptions, handleOnWheel }) {
     };
   }
   return (
-    <div className="model-container" onWheel={handleOnWheel} tabIndex="0">
+    <div
+      className="model-container"
+      onWheel={handleOnWheel}
+      onMouseMove={handleCustomDrag}
+      onMouseDown={handleCustomDrag}
+      onMouseUp={handleCustomDrag}
+    >
       <div className="model-reference" style={style}>
         {changeModel(cubeOptions["model-selection"])}
       </div>
