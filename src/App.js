@@ -12,6 +12,7 @@ import { convertEuler } from "./js/Rotation/convertEuler.js";
 import { RubikCube } from "./js/RubikCube/RubikCube.js";
 import RubikCube2D from "./components/RubikCube2D.js";
 import { rotateCubeOnDrag } from "./js/Rotation/rotateCubeOnDrag.js";
+import Options from "./components/Options.js";
 
 function App() {
   let [cubeOptions, setCubeOptions] = useState({
@@ -23,20 +24,25 @@ function App() {
     },
     // Data passed to render the model
     axisReal: {
-      X: 0,
-      Y: 0,
+      X: 30,
+      Y: 30,
       Z: 0,
     },
     prev: "Z",
     // Render Options
     scale: 1,
-    "model-selection": "rubik",
     rubikCube: new RubikCube(),
     //To track differences is mouse movement
     screenX: 0,
     screenY: 0,
     mouseDown: false,
     axisBefore: {},
+  });
+
+  let [menuOptions, setMenuOptions] = useState({
+    axisDisplay: false,
+    "model-selection": "rubik",
+    cubeFrame: false,
   });
 
   function updateCubeOptions(e) {
@@ -70,6 +76,23 @@ function App() {
 
       setCubeOptions({ ...cubeOptions, [lastObject.lastKey]: e.target.value });
     }
+  }
+
+  function updateMenuOptions(e) {
+    let temp = menuOptions;
+
+    let key = e.target.name;
+    let newValue;
+
+    if (key === "model-selection") {
+      newValue = e.target.defaultValue;
+    } else {
+      //Update boolean
+      newValue = !temp[key];
+    }
+
+    temp[key] = newValue;
+    setMenuOptions({ ...menuOptions });
   }
 
   function onClickRotate(data) {
@@ -151,26 +174,44 @@ function App() {
     } */
   }
 
+  let slider;
+  if (menuOptions.axisDisplay) {
+    slider = (
+      <Sliders
+        axisSlider={cubeOptions.axisSlider}
+        onChange={updateCubeOptions}
+      ></Sliders>
+    );
+  }
+
+  let rubikCube2D;
+  if (menuOptions["model-selection"] === "rubik") {
+    rubikCube2D = (
+      <RubikCube2D
+        rubikCube={cubeOptions.rubikCube}
+        onClick={onClickRotate}
+      ></RubikCube2D>
+    );
+  }
+
   return (
     <div className="App">
       <Model
         key={cubeOptions}
         cubeOptions={cubeOptions}
+        menuOptions={menuOptions}
         handleOnWheel={handleOnWheel}
         handleCustomDrag={handleCustomDrag}
       />
-      <Sliders
-        onChange={updateCubeOptions}
-        axisSlider={cubeOptions.axisSlider}
+      <Options
+        onChange={updateMenuOptions}
+        menuOptions={menuOptions}
+        handleChange={updateMenuOptions}
       />
-      {cubeOptions["model-selection"] === "rubik" ? (
-        <RubikCube2D
-          rubikCube={cubeOptions.rubikCube}
-          onClick={onClickRotate}
-        ></RubikCube2D>
-      ) : (
-        ""
-      )}
+
+      {slider}
+
+      {rubikCube2D}
     </div>
   );
 }

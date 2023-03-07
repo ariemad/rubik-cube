@@ -1,13 +1,17 @@
+import { Fragment } from "react";
 import "../css/Model.scss";
 
 import Cube from "./Cube.js";
+import CubeFrame from "./CubeFrame.js";
 import RubikCube3D from "./RubikCube3D.js";
+import Tetrahedron from "./Tetrahedron.js";
 
-function Model({ cubeOptions, handleOnWheel, handleCustomDrag }) {
+function Model({ cubeOptions, menuOptions, handleOnWheel, handleCustomDrag }) {
   const changeModel = (model) => {
     let dict = {
       cube: <Cube></Cube>,
       rubik: <RubikCube3D rubikCube={cubeOptions.rubikCube}></RubikCube3D>,
+      tetrahedron: <Tetrahedron></Tetrahedron>,
     };
     return dict[model];
   };
@@ -38,6 +42,40 @@ function Model({ cubeOptions, handleOnWheel, handleCustomDrag }) {
       scale: `${cubeOptions.scale}`,
     };
   }
+
+  let axis;
+  if (menuOptions.axisDisplay) {
+    axis = (
+      <Fragment>
+        <div className="axis axis-x-1">
+          <div className="axis-tag-back">+X</div>
+          <div className="axis-tag">-X</div>
+        </div>
+        <div className="axis axis-x-2"></div>
+        <div className="axis axis-y-1">
+          <div className="axis-tag">+Y</div>
+          <div className="axis-tag-back">-Y</div>
+        </div>
+        <div className="axis axis-y-2"></div>
+        <div className="axis axis-z-1">
+          <div className="axis-tag">+Z</div>
+          <div className="axis-tag-back">-Z</div>
+        </div>
+        <div className="axis axis-z-2"></div>
+      </Fragment>
+    );
+  }
+
+  const PLATONIC_SOLIDS = ["tetrahedron"];
+
+  let cubeFrame;
+  if (
+    PLATONIC_SOLIDS.includes(menuOptions["model-selection"]) &&
+    menuOptions.cubeFrame
+  ) {
+    cubeFrame = <CubeFrame></CubeFrame>;
+  }
+
   return (
     <div
       className="model-container"
@@ -47,7 +85,9 @@ function Model({ cubeOptions, handleOnWheel, handleCustomDrag }) {
       onMouseUp={handleCustomDrag}
     >
       <div className="model-reference" style={style}>
-        {changeModel(cubeOptions["model-selection"])}
+        {changeModel(menuOptions["model-selection"])}
+        {axis}
+        {cubeFrame}
       </div>
     </div>
   );

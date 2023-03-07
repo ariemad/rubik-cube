@@ -15,7 +15,6 @@ Convert back to euler on the same representation
  */
 
 import { matrixMultiplication } from "../Math/matrixMultiplication.js";
-import { transpose } from "../Math/matrixTranspose.js";
 import { eulerXYZToRotationMatrix } from "./eulerXYZToRotationMatrix.js";
 import { eulerZXYToRotationMatrix } from "./eulerZXYToRotationMatrix.js";
 import { eulerZYXToRotationMatrix } from "./eulerZYXToRotationMatrix.js";

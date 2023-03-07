@@ -1,4 +1,5 @@
 import {
+  Checkbox,
   FormControl,
   FormControlLabel,
   FormLabel,
@@ -8,9 +9,9 @@ import {
 } from "@mui/material";
 import "../css/Sliders.scss";
 
-function Options({ onChange, axisSlider }) {
+function Sliders({ onChange, axisSlider }) {
   return (
-    <div className="options">
+    <div className="sliders">
       <p>Rotation on X axis </p>
       <Slider
         size="small"
@@ -65,25 +66,8 @@ function Options({ onChange, axisSlider }) {
         onChange={onChange}
         name="axisSlider.Z"
       />
-
-      <FormControl>
-        <FormLabel id="model-radio">Model</FormLabel>
-        <RadioGroup
-          aria-labelledby="model-radio"
-          defaultValue="rubik"
-          name="model-selection"
-          onChange={onChange}
-        >
-          <FormControlLabel
-            value="rubik"
-            control={<Radio />}
-            label="Rubik Cube"
-          />
-          <FormControlLabel value="cube" control={<Radio />} label="Cube" />
-        </RadioGroup>
-      </FormControl>
     </div>
   );
 }
 
-export default Options;
+export default Sliders;
