@@ -3,6 +3,8 @@ import "../css/Model.scss";
 
 import Cube from "./Cube.js";
 import CubeFrame from "./CubeFrame.js";
+import Icosahedron from "./Dodecahedron.js";
+import Octahedron from "./Octahedron.js";
 import RubikCube3D from "./RubikCube3D.js";
 import Tetrahedron from "./Tetrahedron.js";
 
@@ -12,6 +14,8 @@ function Model({ cubeOptions, menuOptions, handleOnWheel, handleCustomDrag }) {
       cube: <Cube></Cube>,
       rubik: <RubikCube3D rubikCube={cubeOptions.rubikCube}></RubikCube3D>,
       tetrahedron: <Tetrahedron></Tetrahedron>,
+      octahedron: <Octahedron></Octahedron>,
+      icosahedron: <Icosahedron></Icosahedron>,
     };
     return dict[model];
   };
@@ -66,7 +70,12 @@ function Model({ cubeOptions, menuOptions, handleOnWheel, handleCustomDrag }) {
     );
   }
 
-  const PLATONIC_SOLIDS = ["tetrahedron"];
+  const PLATONIC_SOLIDS = [
+    "tetrahedron",
+    "octahedron",
+    "icosahedron",
+    "dodecahedron",
+  ];
 
   let cubeFrame;
   if (

@@ -10,7 +10,12 @@ import {
 } from "@mui/material";
 import "../css/Options.scss";
 
-const PLATONIC_SOLIDS = ["tetrahedron"];
+const PLATONIC_SOLIDS = [
+  "tetrahedron",
+  "octahedron",
+  "icosahedron",
+  "dodecahedron",
+];
 
 function Options({ onChange, menuOptions }) {
   let cubeFrameCheckBOx;
@@ -44,6 +49,21 @@ function Options({ onChange, menuOptions }) {
             value="tetrahedron"
             control={<Radio />}
             label="Tetrahedron"
+          />
+          <FormControlLabel
+            value="octahedron"
+            control={<Radio />}
+            label="Octahedron"
+          />
+          <FormControlLabel
+            value="icosahedron"
+            control={<Radio />}
+            label="Icosahedron"
+          />
+          <FormControlLabel
+            value="dodecahedron"
+            control={<Radio />}
+            label="Dodecahedron"
           />
         </RadioGroup>
       </FormControl>

@@ -1,13 +1,21 @@
 import { Fragment } from "react";
-import "../css/Tetrahedron.scss";
+import "../css/PlatonicSolids.scss";
 
 function Tetrahedron() {
   return (
     <Fragment>
-      <div className="triangle tetrahedron1 border-red"></div>
-      <div className="triangle tetrahedron2 border-blue"></div>
-      <div className="triangle tetrahedron3 border-orange"></div>
-      <div className="triangle tetrahedron4 border-violet"></div>
+      <div className="wrapper tetrahedron1 ">
+        <div className="triangle-tetra  border-red"></div>
+      </div>
+      <div className="wrapper tetrahedron2 ">
+        <div className="triangle-tetra  border-orange"></div>
+      </div>
+      <div className="wrapper tetrahedron3 ">
+        <div className="triangle-tetra  border-blue"></div>
+      </div>
+      <div className="wrapper tetrahedron4 ">
+        <div className="triangle-tetra  border-green"></div>
+      </div>
     </Fragment>
   );
 }

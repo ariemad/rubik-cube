@@ -19,9 +19,9 @@ function getPolar(point) {
   return { r, theta, phi };
 }
 
-let p1 = [-0.5, -0.5, -0.5];
-let p2 = [0.5, 0.5, -0.5];
-let p3 = [-0.5, 0.5, 0.5];
+let p1 = [0.5, 0.618 / 2, 0];
+let p2 = [0, 0.5, 0.618 / 2];
+let p3 = [0.618 / 2, 0, 0.5];
 
 let pCenter = calcCenter(p1, p2, p3);
 console.log(getPolar(pCenter));
