@@ -31,7 +31,7 @@ function Options({ onChange, menuOptions }) {
   }
   return (
     <div className="options">
-      <FormControl>
+      <FormControl className="gap-down">
         <FormLabel id="model-radio">Model</FormLabel>
         <RadioGroup
           aria-labelledby="model-radio"
