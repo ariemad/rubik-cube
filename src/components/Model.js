@@ -3,7 +3,8 @@ import "../css/Model.scss";
 
 import Cube from "./Cube.js";
 import CubeFrame from "./CubeFrame.js";
-import Icosahedron from "./Dodecahedron.js";
+import Dodecahedron from "./Dodecahedron.js";
+import Icosahedron from "./Icosahedron.js";
 import Octahedron from "./Octahedron.js";
 import RubikCube3D from "./RubikCube3D.js";
 import Tetrahedron from "./Tetrahedron.js";
@@ -16,6 +17,7 @@ function Model({ cubeOptions, menuOptions, handleOnWheel, handleCustomDrag }) {
       tetrahedron: <Tetrahedron></Tetrahedron>,
       octahedron: <Octahedron></Octahedron>,
       icosahedron: <Icosahedron></Icosahedron>,
+      dodecahedron: <Dodecahedron></Dodecahedron>,
     };
     return dict[model];
   };

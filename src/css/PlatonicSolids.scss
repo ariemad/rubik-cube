@@ -205,3 +205,91 @@
     translateZ($unit * 0.5) rotateY(180deg) rotateX(-20.905deg) rotateZ(60deg)
     rotateX(-41.8deg);
 }
+
+// Dodecahedron
+
+.pentagon {
+  display: flex;
+  flex-direction: column;
+}
+
+.pentagon-upper {
+  width: 0;
+  height: 0;
+
+  border-right: $unit / 2 solid transparent;
+  border-left: $unit / 2 solid transparent;
+
+  border-bottom-width: $unit * 0.3633;
+  border-bottom-style: solid;
+
+  transform: translateY($unit * +0.1123) translateX($unit * 0.5);
+}
+
+.pentagon-lower {
+  width: $unit * 0.618;
+  height: 0;
+
+  border-right: $unit * 0.191 solid transparent;
+  border-left: $unit * 0.191 solid transparent;
+
+  border-top-width: $unit * 0.589;
+  border-top-style: solid;
+
+  transform: translateY($unit * +0.1123) translateX($unit * 0.5);
+}
+
+.pentagon1 {
+  transform: translateZ($unit * -0.5) translateX($unit * -0.5)
+    translateY($unit * -0.5) rotateX(121.7deg);
+}
+
+.pentagon2 {
+  transform: translateZ($unit * 0.5) translateX($unit * -0.5)
+    translateY($unit * -0.5) rotateX(-121.7deg);
+}
+
+.pentagon3 {
+  transform: translateZ($unit * 0.5) translateX($unit * -0.5)
+    translateY($unit * -0.5) rotateY(90deg) rotateX(-31.7deg);
+}
+
+.pentagon4 {
+  transform: translateZ($unit * 0.5) translateX($unit * 0.5)
+    translateY($unit * -0.5) rotateY(90deg) rotateX(31.7deg);
+}
+.pentagon5 {
+  transform: translateZ($unit * 0.5) translateX($unit * 0.5)
+    translateY(-$unit * -0.5) rotateY(90deg) rotateX(-211.7deg);
+}
+.pentagon6 {
+  transform: translateZ($unit * 0.5) translateX($unit * -0.5)
+    translateY($unit * 0.5) rotateY(90deg) rotateX(211.7deg);
+}
+.pentagon7 {
+  transform: translateZ($unit * 0.5) translateX($unit * -0.5)
+    translateY($unit * 0.5) rotateX(301.7deg);
+}
+.pentagon8 {
+  transform: translateZ($unit * -0.5) translateX($unit * -0.5)
+    translateY($unit * 0.5) rotateX(-301.7deg);
+}
+.pentagon9 {
+  transform: translateZ($unit * -0.5) translateX($unit * -0.5)
+    translateY($unit * 0.5) rotateZ(-90deg) rotateX(-31.7deg);
+}
+
+.pentagon10 {
+  transform: translateZ($unit * 0.5) translateX($unit * -0.5)
+    translateY($unit * 0.5) rotateZ(-90deg) rotateX(31.7deg);
+}
+
+.pentagon11 {
+  transform: translateZ($unit * 0.5) translateX($unit * 0.5)
+    translateY($unit * -0.5) rotateZ(90deg) rotateX(31.7deg);
+}
+
+.pentagon12 {
+  transform: translateZ($unit * -0.5) translateX($unit * 0.5)
+    translateY($unit * -0.5) rotateZ(90deg) rotateX(-31.7deg);
+}
