@@ -1,6 +1,7 @@
 # Rubik Cube
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+[![standard-readme compliant](https://img.shields.io/badge/-Deployment-green)](https://build.dx4nfu4mql6ty.amplifyapp.com/)
 
 This is a 3D simulation of Rubik Cube and other solids.
 
