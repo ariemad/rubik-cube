@@ -1,12 +1,4 @@
-import {
-  Checkbox,
-  FormControl,
-  FormControlLabel,
-  FormLabel,
-  Radio,
-  RadioGroup,
-  Slider,
-} from "@mui/material";
+import { Slider } from "@mui/material";
 import "../css/Sliders.scss";
 
 function Sliders({ onChange, axisSlider }) {

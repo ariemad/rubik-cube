@@ -2,11 +2,9 @@ import {
   Checkbox,
   FormControl,
   FormControlLabel,
-  FormGroup,
   FormLabel,
   Radio,
   RadioGroup,
-  Slider,
 } from "@mui/material";
 import "../css/Options.scss";
 
