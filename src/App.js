@@ -10,9 +10,9 @@ import Model from "./components/Model.js";
 import Sliders from "./components/Sliders.js";
 import { convertEuler } from "./js/Rotation/convertEuler.js";
 import { RubikCube } from "./js/RubikCube/RubikCube.js";
-import RubikCube2D from "./components/RubikCube/RubikCube2D.js";
 import { rotateCubeOnDrag } from "./js/Rotation/rotateCubeOnDrag.js";
 import Options from "./components/Options.js";
+import RubikCubeComplementary from "./components/RubikCube/RubikCubeComplementary.js";
 
 function App() {
   let [cubeOptions, setCubeOptions] = useState({
@@ -147,6 +147,45 @@ function App() {
     }
   }
 
+  function reset() {
+    if (shuffling) return;
+    setCubeOptions({ ...cubeOptions, rubikCube: new RubikCube() });
+  }
+
+  let [shuffling, setShuffling] = useState(false);
+  let [animationSpeed, setAnimationSpeed] = useState("slow");
+
+  function shuffle(time) {
+    let count = 0;
+    let intervalID = setInterval(() => {
+      let temp = cubeOptions.rubikCube;
+      temp.rotateRandom();
+      setCubeOptions({ ...cubeOptions, rubikCube: temp });
+      count++;
+      if (count >= 12) {
+        clearInterval(intervalID);
+        setTimeout(() => {
+          setAnimationSpeed("slow");
+          setShuffling(false);
+        }, 800);
+      }
+    }, time);
+  }
+
+  function shuffleSlow() {
+    if (shuffling) return;
+    setShuffling(true);
+    setAnimationSpeed("slow");
+    shuffle(800);
+  }
+
+  function shuffleFast() {
+    if (shuffling) return;
+    setShuffling(true);
+    setAnimationSpeed("fast");
+    shuffle(200);
+  }
+
   let slider;
   if (menuOptions.axisDisplay) {
     slider = (
@@ -157,13 +196,16 @@ function App() {
     );
   }
 
-  let rubikCube2D;
+  let rubikCubeComplementary;
   if (menuOptions["model-selection"] === "rubik") {
-    rubikCube2D = (
-      <RubikCube2D
+    rubikCubeComplementary = (
+      <RubikCubeComplementary
         rubikCube={cubeOptions.rubikCube}
         onClick={onClickRotate}
-      ></RubikCube2D>
+        reset={reset}
+        shuffleSlow={shuffleSlow}
+        shuffleFast={shuffleFast}
+      ></RubikCubeComplementary>
     );
   }
 
@@ -175,6 +217,7 @@ function App() {
         menuOptions={menuOptions}
         handleOnWheel={handleOnWheel}
         handleCustomDrag={handleCustomDrag}
+        animationSpeed={animationSpeed}
       />
       <Options
         onChange={updateMenuOptions}
@@ -184,7 +227,7 @@ function App() {
 
       {slider}
 
-      {rubikCube2D}
+      {rubikCubeComplementary}
     </div>
   );
 }

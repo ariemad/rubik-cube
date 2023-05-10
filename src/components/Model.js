@@ -9,11 +9,22 @@ import Octahedron from "./PlatonicSolids/Octahedron.js";
 import RubikCube3D from "./RubikCube/RubikCube3D.js";
 import Tetrahedron from "./PlatonicSolids/Tetrahedron.js";
 
-function Model({ cubeOptions, menuOptions, handleOnWheel, handleCustomDrag }) {
+function Model({
+  cubeOptions,
+  menuOptions,
+  handleOnWheel,
+  handleCustomDrag,
+  animationSpeed,
+}) {
   const changeModel = (model) => {
     let dict = {
       cube: <Cube></Cube>,
-      rubik: <RubikCube3D rubikCube={cubeOptions.rubikCube}></RubikCube3D>,
+      rubik: (
+        <RubikCube3D
+          rubikCube={cubeOptions.rubikCube}
+          animationSpeed={animationSpeed}
+        ></RubikCube3D>
+      ),
       tetrahedron: <Tetrahedron></Tetrahedron>,
       octahedron: <Octahedron></Octahedron>,
       icosahedron: <Icosahedron></Icosahedron>,

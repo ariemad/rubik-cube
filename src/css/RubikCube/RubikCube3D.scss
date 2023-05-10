@@ -5,6 +5,11 @@
   animation-duration: 0.8s;
 }
 
+.rotate-animation-fast {
+  transform-style: preserve-3d;
+  animation-duration: 0.2s;
+}
+
 @keyframes rotateXNeg {
   from {
     transform: rotateX(-90deg);

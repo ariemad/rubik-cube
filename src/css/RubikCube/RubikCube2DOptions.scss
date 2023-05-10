@@ -1,0 +1,12 @@
+.rubik-cube-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+}
+
+.options-button {
+  width: 10rem;
+  height: 2rem;
+}

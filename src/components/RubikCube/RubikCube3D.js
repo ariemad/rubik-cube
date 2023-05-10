@@ -4,7 +4,7 @@ import "../../css/RubikCube/RubikCube3D.scss";
 import RubikCube3DFace from "./RubikCube3DFace.js";
 import RubikCube3DSpacer from "./RubikCube3DSpacer.js";
 
-function RubikCube3D({ rubikCube }) {
+function RubikCube3D({ rubikCube, animationSpeed }) {
   const addSquares = (rubikCube) => {
     let items = [];
     let faces = ["front", "back", "top", "bottom", "left", "right"];
@@ -21,6 +21,7 @@ function RubikCube3D({ rubikCube }) {
                 color={rubikCube[key].face[i][j]}
                 lastRotation={rubikCube.lastRotation}
                 rotationCounter={rubikCube.rotationCounter}
+                animationSpeed={animationSpeed}
               ></RubikCube3DFace>
             );
           }
@@ -49,12 +50,14 @@ function RubikCube3D({ rubikCube }) {
           face={face}
           lastRotation={rubikCube.lastRotation}
           rotationCounter={rubikCube.rotationCounter}
+          animationSpeed={animationSpeed}
         ></RubikCube3DSpacer>
       );
       items.push(
         <RubikCube3DSpacer
           key={face + rubikCube.rotationCounter + "#"}
           face={face}
+          animationSpeed={animationSpeed}
         ></RubikCube3DSpacer>
       );
     }

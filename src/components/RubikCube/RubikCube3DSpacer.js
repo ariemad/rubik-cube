@@ -10,7 +10,7 @@ const POSITION_FACE = {
   bottom: `translateX(-${unit1_2}) translateY(-${unit1_2}) rotateX(-90deg) translateZ(${unit1_6})`,
 };
 
-function RubikCube3DSpacer({ face, lastRotation }, rotationCounter) {
+function RubikCube3DSpacer({ face, lastRotation, animationSpeed }) {
   const addRotateAnimation = () => {
     if (!lastRotation) {
       return "";
@@ -62,8 +62,13 @@ function RubikCube3DSpacer({ face, lastRotation }, rotationCounter) {
     };
   };
 
+  const addAnimationSpeed = () => {
+    if (animationSpeed === "fast") return "rotate-animation-fast ";
+    else return "rotate-animation ";
+  };
+
   return (
-    <div className={"rotate-animation " + addRotateAnimation()}>
+    <div className={addAnimationSpeed() + addRotateAnimation()}>
       <div style={addStyle(face)} className="spacer black"></div>
     </div>
   );

@@ -43,6 +43,7 @@ function RubikCube3DFace({
   color,
   lastRotation,
   rotationCounter,
+  animationSpeed,
 }) {
   const addRotateAnimation = () => {
     if (!lastRotation) {
@@ -163,11 +164,16 @@ function RubikCube3DFace({
     };
   };
 
+  const addAnimationSpeed = () => {
+    if (animationSpeed === "fast") return "rotate-animation-fast ";
+    else return "rotate-animation ";
+  };
+
   return (
     <Fragment>
       <div
         key={rotationCounter}
-        className={"rotate-animation " + addRotateAnimation()}
+        className={addAnimationSpeed() + addRotateAnimation()}
       >
         <div style={addStyle()} className={"square-container black"}>
           <div className={addColor(color)}></div>

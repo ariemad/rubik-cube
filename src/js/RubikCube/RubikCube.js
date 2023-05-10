@@ -42,6 +42,8 @@ class RubikCube {
       this.left = new RubikFace(4, "test");
       this.right = new RubikFace(5, "test");
     }
+
+    this.lastRandom = "";
   }
 
   logVertical() {
@@ -290,6 +292,28 @@ class RubikCube {
         this.left.setRow(0, temp);
         this.top.rotateRight();
       }
+    }
+  }
+
+  rotateRandom() {
+    let axisOptions = ["x", "y", "z"];
+    let axisRandom = Math.floor(Math.random() * 3);
+    let directionOptions = [1, 2, 3, -1, -2, -3];
+    let directionRandom = Math.floor(Math.random() * 6);
+
+    let currRandom = [
+      axisOptions[axisRandom],
+      directionOptions[directionRandom],
+    ];
+
+    if (
+      this.lastRandom[0] === currRandom[0] &&
+      this.lastRandom[1] === -currRandom[1]
+    ) {
+      this.rotateRandom();
+    } else {
+      this.lastRandom = currRandom;
+      this.rotate(axisOptions[axisRandom], directionOptions[directionRandom]);
     }
   }
 }
