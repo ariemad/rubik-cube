@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import "../css/PlatonicSolids.scss";
+import "../../css/PlatonicSolids.scss";
 
 function Icosahedron() {
   return (

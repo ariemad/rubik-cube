@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import "../css/RubikCube3D.scss";
+import "../../css/RubikCube/RubikCube3D.scss";
 
 import RubikCube3DFace from "./RubikCube3DFace.js";
 import RubikCube3DSpacer from "./RubikCube3DSpacer.js";

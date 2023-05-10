@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import "../css/Cube.scss";
+import "../../css/Cube.scss";
 
 function Cube() {
   return (

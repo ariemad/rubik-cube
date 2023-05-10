@@ -1,4 +1,4 @@
-import "../css/RubikCube2D.scss";
+import "../../css/RubikCube/RubikCube2D.scss";
 
 const addClasses = (number) => {
   let base = "square square-border ";

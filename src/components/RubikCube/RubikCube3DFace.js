@@ -1,6 +1,6 @@
 import { Fragment } from "react";
-import "../css/RubikCube3DFace.scss";
-import { unit1_2, unit1_3, unit1_6 } from "./_variables.js";
+import "../../css/RubikCube/RubikCube3DFace.scss";
+import { unit1_2, unit1_3, unit1_6 } from "../_variables.js";
 
 const addColor = (number) => {
   let base = "square-coloured ";

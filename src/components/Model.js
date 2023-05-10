@@ -1,13 +1,13 @@
 import { Fragment } from "react";
 import "../css/Model.scss";
 
-import Cube from "./Cube.js";
+import Cube from "./PlatonicSolids/Cube.js";
 import CubeFrame from "./CubeFrame.js";
-import Dodecahedron from "./Dodecahedron.js";
-import Icosahedron from "./Icosahedron.js";
-import Octahedron from "./Octahedron.js";
-import RubikCube3D from "./RubikCube3D.js";
-import Tetrahedron from "./Tetrahedron.js";
+import Dodecahedron from "./PlatonicSolids/Dodecahedron.js";
+import Icosahedron from "./PlatonicSolids/Icosahedron.js";
+import Octahedron from "./PlatonicSolids/Octahedron.js";
+import RubikCube3D from "./RubikCube/RubikCube3D.js";
+import Tetrahedron from "./PlatonicSolids/Tetrahedron.js";
 
 function Model({ cubeOptions, menuOptions, handleOnWheel, handleCustomDrag }) {
   const changeModel = (model) => {

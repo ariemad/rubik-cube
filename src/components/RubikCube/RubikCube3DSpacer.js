@@ -1,5 +1,5 @@
-import { unit1_6, unit1_2 } from "./_variables.js";
-import "../css/RubikCube3DSpacer.scss";
+import { unit1_6, unit1_2 } from "../_variables.js";
+import "../../css/RubikCube/RubikCube3DSpacer.scss";
 
 const POSITION_FACE = {
   front: `translateX(-${unit1_2}) translateY(-${unit1_2})  translateZ(${unit1_6}) `,

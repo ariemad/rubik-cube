@@ -10,7 +10,7 @@ import Model from "./components/Model.js";
 import Sliders from "./components/Sliders.js";
 import { convertEuler } from "./js/Rotation/convertEuler.js";
 import { RubikCube } from "./js/RubikCube/RubikCube.js";
-import RubikCube2D from "./components/RubikCube2D.js";
+import RubikCube2D from "./components/RubikCube/RubikCube2D.js";
 import { rotateCubeOnDrag } from "./js/Rotation/rotateCubeOnDrag.js";
 import Options from "./components/Options.js";
 
@@ -145,33 +145,6 @@ function App() {
         mouseDown: false,
       });
     }
-
-    /*     let temp = cubeOptions;
-    if (
-      Math.abs(temp.mouseX - e.screenX) > 100 &&
-      Math.abs(temp.mouseY - e.screenY) > 100
-    ) {
-      setCubeOptions({ ...cubeOptions, mouseX: e.screenX, mouseY: e.screenY });
-    } else {
-      temp.axisReal = rotateCubeOnDrag(
-        temp.axisReal,
-        temp.prev,
-        "Y",
-        e.screenX - temp.mouseX
-      );
-      temp.axisReal = rotateCubeOnDrag(
-        temp.axisReal,
-        temp.prev,
-        "X",
-        e.screenY - temp.mouseY
-      );
-      temp.mouseX = e.screenX;
-      temp.mouseY = e.screenY;
-
-      setCubeOptions({
-        ...temp,
-      });
-    } */
   }
 
   let slider;
