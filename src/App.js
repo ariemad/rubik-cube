@@ -13,6 +13,7 @@ import { RubikCube } from "./js/RubikCube/RubikCube.js";
 import { rotateCubeOnDrag } from "./js/Rotation/rotateCubeOnDrag.js";
 import Options from "./components/Options.js";
 import RubikCubeComplementary from "./components/RubikCube/RubikCubeComplementary.js";
+import Links from "./components/Links.js";
 
 function App() {
   let [cubeOptions, setCubeOptions] = useState({
@@ -226,8 +227,9 @@ function App() {
       />
 
       {slider}
-
       {rubikCubeComplementary}
+
+      <Links />
     </div>
   );
 }

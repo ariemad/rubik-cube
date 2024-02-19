@@ -1,0 +1,14 @@
+.link {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 1rem;
+}
+
+.link-svg {
+  height: 5rem;
+  width: 5rem;
+  padding: 0 1rem;
+  filter: brightness(0) invert(0);
+}
